@@ -2,6 +2,7 @@ include_directories(
 	"${PROJECT_SOURCE_DIR}/src/include/libpq"
 	"${PROJECT_SOURCE_DIR}/src/interfaces/libpq"
 	"${PROJECT_SOURCE_DIR}/src/bin/pg_dump"
+	"${INCLUDEDIR}"
 )
 
 set(postgres_include_catalog "${PROJECT_SOURCE_DIR}/src/include/catalog")

@@ -12,7 +12,7 @@ target_link_libraries(${extension_name}${PYTHON_VERSION_MAJOR} ${contrib_libs} $
 set_target_properties(${extension_name}${PYTHON_VERSION_MAJOR} PROPERTIES PREFIX "")
 add_dependencies(${extension_name}${PYTHON_VERSION_MAJOR} postgres)
 if (MSVC)
-	gen_def(${extension_name})
+	gen_def(${extension_name}${PYTHON_VERSION_MAJOR})
 endif()
 if(NOT PGXS)
 	CMAKE_SET_TARGET_FOLDER(${extension_name}${PYTHON_VERSION_MAJOR} contrib)

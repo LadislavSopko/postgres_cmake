@@ -128,15 +128,17 @@ sub writedef
 		$f =~ s/^_//
 		  unless ($platform eq "x64");
 
-		# Emit just the name if it's a function symbol, or emit the name
-		# decorated with the DATA option for variables.
-		if ($isdata)
-		{
-			print DEF "  $f DATA\n";
-		}
-		else
-		{
-			print DEF "  $f\n";
+		if($f ne '__acrt_get_locale_data_prefix') {
+			# Emit just the name if it's a function symbol, or emit the name
+			# decorated with the DATA option for variables.
+			if ($isdata)
+			{
+				print DEF "  $f DATA\n";
+			}
+			else
+			{
+				print DEF "  $f\n";
+			}
 		}
 	}
 	close(DEF);
