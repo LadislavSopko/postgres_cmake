@@ -412,6 +412,7 @@ check_include_files("sys/shm.h" HAVE_SYS_SHM_H)
 
 # Check if _GNU_SOURCE is available.
 check_symbol_exists(__GNU_LIBRARY__ "features.h" _GNU_SOURCE)
+check_symbol_exists(F_FULLFSYNC "fcntl.h" HAVE_DECL_F_FULLFSYNC)
 
 include(ReplacePython)
 include(CheckCpuID)
@@ -422,7 +423,7 @@ if(MSVC)
 		set(USE_SSE42_CRC32C_WITH_RUNTIME_CHECK 1)
 	endif()
 else()
-	if(HAVE_SSE4_2 AND HAVE_SSE42_INTRINSICS)
+	if(HAVE_SSE42 AND HAVE_SSE42_INTRINSICS)
 		set(USE_SSE42_CRC32C 1)
 	elseif(HAVE_SSE42_INTRINSICS AND (HAVE__GET_CPUID OR HAVE__CPUID))
 		set(USE_SSE42_CRC32C_WITH_RUNTIME_CHECK 1)
