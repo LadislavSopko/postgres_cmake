@@ -508,10 +508,12 @@ if(HAVE_LONG_LONG_INT_64)
 endif()
 
 option(FLOAT4PASSBYVAL "float4 values are passed by value" ON)
+option(USE_FLOAT4_BYVAL "float4 values are passed by value" ON)
 if(FLOAT4PASSBYVAL)
 	set(FLOAT4PASSBYVAL 1)
+	set(USE_FLOAT4_BYVAL 1)
 endif(FLOAT4PASSBYVAL)
-option(USE_FLOAT4_BYVAL "float4 values are passed by value" ON)
+
 
 
 if(FLOAT8PASSBYVAL AND NOT (VOID_POINTER_SIZE EQUAL 8))
